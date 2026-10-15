@@ -11,9 +11,9 @@ if ZMK_CUSTOM_SETTINGS
 # Found on real hardware: with a persisted keyspace entry present, boot
 # overflowed the 1024-byte main stack (usage fault in arch_system_halt with
 # a corrupted return address) before USB even enumerated, while the same
-# image booted fine with 2048. configdefault only raises the default; an
-# explicit board/user setting still wins.
-configdefault MAIN_STACK_SIZE
+# image booted fine with 2048. Use the backwards-compatible 'config' syntax
+# for Zephyr 3.5; explicit board/user settings still win.
+config MAIN_STACK_SIZE
     default 2048
 
 config ZMK_CUSTOM_SETTINGS_VALUE_MAX_SIZE
